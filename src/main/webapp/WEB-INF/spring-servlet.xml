@@ -5,15 +5,15 @@
             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!-- 定义一个视图解析器 -->
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-    p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+    <!--<bean id="viewResolver"-->
+          <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+    <!--p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>-->
 
-    <!--<bean id="jspviewResolver"-->
-          <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="prefix" value="/html/"/>-->
-        <!--<property name="suffix" value=".html"/>-->
-    <!--</bean>-->
+    <bean id="jspviewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/html/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
 
     <!--<bean id="freemarkerConfig"-->
           <!--class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
