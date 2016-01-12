@@ -19,7 +19,7 @@
                     }
                 });
             })
-        }))
+        }));
 
         function input(str) {
             document.getElementById("expression").value += str;
