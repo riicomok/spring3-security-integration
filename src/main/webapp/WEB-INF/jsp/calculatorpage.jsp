@@ -1,20 +1,17 @@
-<%--suppress ALL --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="webjars/jquery/2.1.0/jquery.js"></script>
     <script language="javascript">
 
-        <!--计算-->
         $(document).ready($(function () {
             $("#sub").click(function () {
-                alert("hello");
                 $.ajax({
-                    url: "/calculator/cal2",
+                    url: "/calculator/cal2.action",
                     data: $("#calculator").serialize(),
                     type: "post",
                     success: function (data) {
@@ -47,8 +44,7 @@
     </script>
 </head>
 <body>
-
-<form id="calculator" method="post" action="/calculator/cal2">
+<form id="calculator" method="post">
     <table align="center" border="1" cellspacing="0" width="150px">
         <tr>
             <td colspan="4"><textarea name="expression" id="expression" rows="2" style="width: 95%" readonly="readonly"></textarea>
