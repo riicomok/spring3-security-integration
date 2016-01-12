@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("auth")
 public class LoginLogoutController {
 
-    protected static Logger logger = Logger.getLogger("controller");
-
     /**
      * 指向登录页面
      */
@@ -21,12 +19,10 @@ public class LoginLogoutController {
             @RequestParam(value = "error", required = false) boolean error,
             ModelMap model) {
 
-        logger.debug("Received request to show login page");
-
         if (error) {
             // Assign an error message
             model.put("error",
-                    "You have entered an invalid username or password!");
+                    "账号或密码不正确");
         } else {
             model.put("error", "");
         }
@@ -41,8 +37,6 @@ public class LoginLogoutController {
      */
     @RequestMapping(value = "/denied", method = RequestMethod.GET)
     public String getDeniedPage() {
-
-        logger.debug("Received request to show denied page");
 
         return "deniedpage";
 

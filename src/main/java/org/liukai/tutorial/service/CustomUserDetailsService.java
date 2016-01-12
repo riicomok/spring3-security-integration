@@ -23,8 +23,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public class CustomUserDetailsService implements UserDetailsService {
 
-    protected static Logger logger = Logger.getLogger("service");
-
     private UserDao userDAO = new UserDao();
 
     public UserDetails loadUserByUsername(String username)
@@ -35,7 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         try {
 
             // 搜索数据库以匹配用户登录名.
-            // 我们可以通过dao使用JDBC来访问数据库
+            // 通过dao使用JDBC来访问数据库
             DbUser dbUser = userDAO.getDatabase(username);
 
             user = new User(dbUser.getUsername(), dbUser.getPassword()
@@ -43,7 +41,6 @@ public class CustomUserDetailsService implements UserDetailsService {
                     getAuthorities(dbUser.getAccess()));
 
         } catch (Exception e) {
-            logger.error("Error in retrieving user");
             throw new UsernameNotFoundException("用户查询失败");
         }
 
@@ -61,12 +58,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(2);
 
         // 所有的用户默认拥有ROLE_USER权限
-        logger.debug("Grant ROLE_USER to this user");
         authList.add(new GrantedAuthorityImpl("ROLE_USER"));
 
         // 如果参数access为1.则拥有ROLE_ADMIN权限
         if (access.compareTo(1) == 0) {
-            logger.debug("Grant ROLE_ADMIN to this user");
             authList.add(new GrantedAuthorityImpl("ROLE_ADMIN"));
         }
 

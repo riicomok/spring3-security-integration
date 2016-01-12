@@ -36,6 +36,8 @@
           <element id="library" level="project" name="Maven: javax.jms:jms:1.1" />
           <element id="library" level="project" name="Maven: com.sun.jdmk:jmxtools:1.2.1" />
           <element id="library" level="project" name="Maven: com.sun.jmx:jmxri:1.2.1" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery:2.1.0" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
         </element>
       </element>
       <element id="directory" name="META-INF">

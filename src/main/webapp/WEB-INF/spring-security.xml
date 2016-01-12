@@ -23,9 +23,9 @@
                 default-target-url="/main/common"/>
 
         <security:logout
+                logout-url="/auth/logout"
                 invalidate-session="true"
-                logout-success-url="/auth/login"
-                logout-url="/auth/logout"/>
+                logout-success-url="/auth/login"/>
 
     </security:http>
 
